@@ -21,6 +21,9 @@ func main() {
 	var reg registry.Registration
 	reg.ServiceName = registry.LogService
 	reg.ServiceUrl = fmt.Sprintf("http://%v:%v", Host, Port)
+	reg.RequiredServices = make([]registry.ServiceName, 0)
+	reg.UpdateServiceURL = reg.ServiceUrl + "/services"
+	reg.HearbeatURL = reg.ServiceUrl + "/heartbeat"
 
 	ctx, err := service.Start(ctx, reg, Host, Port, log.RegisterHandlers)
 	if err != nil {

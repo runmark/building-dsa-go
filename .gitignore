@@ -1,1 +1,5 @@
 *.log
+gradingservice
+logservice
+registryservice
+teacherportalservice
